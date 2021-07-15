@@ -1,25 +1,22 @@
-$primary-color: #333;
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
-html,
-body {
-  padding: 0;
-  margin: 0;
 
-    font-family: 'Source Sans Pro', sans-serif;
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+*{
+  font-family: 'Source Sans Pro', sans-serif;
 }
+$font-family-sans-serif: Source Sans Pro;
+$font-weight-bold:  600;
 
-* {
-  box-sizing: border-box;
-}
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+);
 
-.navbarHeight{
-    height: 70px;
-}
 .has-search .form-control {
     padding-left: 2.375rem;
 }
@@ -35,4 +32,27 @@ a {
     pointer-events: none;
     color: #aaa;
 }
-@import 'bootstrap/dist/css/bootstrap.css'
+
+
+aside a {
+
+  text-decoration: none;
+
+
+line-height: 16px;
+
+mix-blend-mode: normal;
+
+}
+.flex-fixed-width-item {
+  flex: 0 0 100px;
+}
+
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
+
+
