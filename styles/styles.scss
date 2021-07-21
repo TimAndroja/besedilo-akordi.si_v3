@@ -6,16 +6,22 @@
 }
 $font-family-sans-serif: Source Sans Pro;
 $font-weight-bold:  600;
-
-$spacer: 1rem;
+$secondary: #878F9B;
+$primary: #8675A9;
+$bg-light:#DEEAF3;
+$spacer: 1.2rem;
 $spacers: (
   0: 0,
   1: $spacer * .25,
   2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 2,
+  3: $spacer * .75,
+  4: $spacer ,
+  5: $spacer * 1.5,
+  6:  $spacer * 2,
+  
 );
+
+
 
 .has-search .form-control {
     padding-left: 2.375rem;
@@ -27,11 +33,12 @@ $spacers: (
     display: block;
     width: 2.375rem;
     height: 2.375rem;
-    line-height: 2.375rem;
+    line-height: 2.25rem;
     text-align: center;
     pointer-events: none;
     color: #aaa;
 }
+
 
 
 aside a {
@@ -47,6 +54,25 @@ mix-blend-mode: normal;
 .flex-fixed-width-item {
   flex: 0 0 100px;
 }
+
+.categoryGrid{
+  display:grid;
+  margin:  0 $spacer*0.5;
+
+  gap: 0px $spacer*0.5;
+
+  div{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 
 
 

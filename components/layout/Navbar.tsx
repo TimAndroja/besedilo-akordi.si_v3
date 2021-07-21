@@ -1,5 +1,6 @@
 import SearchIcon from '@material-ui/icons/Search';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 export default function Navbar() {
     return (
         <nav className="px-5  d-flex align-items-center  ">
@@ -10,7 +11,8 @@ export default function Navbar() {
                 </div>
 
 
-                <div className="fs-5 ms-4 "><Brightness4Icon></Brightness4Icon></div>
+                <div className="d-flex "><div className="mx-3"><Brightness4Icon style={{'fontSize': "28px"}}></Brightness4Icon></div>
+                <div><AccountCircleIcon style={{'fontSize': "28px"}}></AccountCircleIcon></div> </div>
 
             </div>
         </nav>
