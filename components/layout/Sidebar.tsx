@@ -1,12 +1,4 @@
 
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
-import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import LibraryMusicOutlinedIcon from '@material-ui/icons/LibraryMusicOutlined';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
-import GradeOutlinedIcon from '@material-ui/icons/GradeOutlined';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import Link from "next/link";
 export default function Sidebar() {
     return (

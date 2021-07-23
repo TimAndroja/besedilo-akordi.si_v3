@@ -11,7 +11,7 @@ class Document extends NextDocument<Props> {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
       rel="stylesheet"></link>
     </Head>
-        <body>
+        <body className="light">
           <Main />
           <NextScript />
         </body>

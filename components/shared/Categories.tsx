@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { Repeat } from "@material-ui/icons";
+
+
 
 export default function Categories() {
   const [categoryArray, setCategoryArray] = useState([
@@ -67,6 +66,7 @@ export default function Categories() {
   const [numOfElements, setNumOfElements] = useState(10);
   useEffect(() => {
     if (typeof window !== "undefined") {
+      // @ts-ignore
       function handleResize() {
          
           if(window.innerWidth > 2400){
@@ -109,10 +109,10 @@ export default function Categories() {
 
     for (var i = 0; i < numOfElements; i++) {
       shownCategories.push(
-        <div className="w-100 shadow">
+        <div className="w-100 shadow"  key={i}>
         <button
         type="button"
-  
+       
         className={buttonClasses}
       >
         {categoryArray[i - offset + slidePage * numOfElements].name}
@@ -138,7 +138,7 @@ export default function Categories() {
             className={`btn btn-primary shadow-sm text-white fw-bold px-0  btn-sm  ${slidePage == 0 ? "disabled" : ""}`}
             onClick={()=>slidePage > 0 ? setSlidePage(slidePage - 1) : void 0}
           >
-            <ChevronLeftIcon></ChevronLeftIcon>
+            <i className="material-icons-outlined align-middle">chevron_left</i>
           </button>
       <div className="w-100 "><div className="categoryGrid" style={{"gridTemplateColumns" : "1fr ".repeat(numOfElements)}}>{categoryDisplay}</div></div>
       <button
@@ -146,7 +146,7 @@ export default function Categories() {
           className={`btn shadow-sm btn-primary btn-sm text-white fw-bold px-0 ${ slidePage * numOfElements + numOfElements +  1< categoryArray.length ? "" : "disabled"}`}
           onClick={()=> slidePage * numOfElements + numOfElements +  1 < categoryArray.length ? setSlidePage(slidePage + 1): void 0}
         >
-          <ChevronRightIcon></ChevronRightIcon>
+              <i className="material-icons-outlined align-middle">chevron_right</i>
         </button>
       </nav>;
 }

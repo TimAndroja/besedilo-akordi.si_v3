@@ -3,12 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 *{
   font-family: 'Source Sans Pro', sans-serif;
+
 }
+
+
+
 $font-family-sans-serif: Source Sans Pro;
 $font-weight-bold:  600;
-$secondary: #878F9B;
-$primary: #8675A9;
-$bg-light:#DEEAF3;
+
+
+
 $spacer: 1.2rem;
 $spacers: (
   0: 0,
@@ -23,6 +27,19 @@ $spacers: (
 
 
 
+$theme-colors: (
+  "primary": #8675A9,
+  "primaryd": #8675A9,
+  "secondary": #878F9B,
+  "light":#e5ecf3,
+  "lightd":#000,
+
+);
+
+a{
+  cursor: pointer;
+}
+
 .has-search .form-control {
     padding-left: 2.375rem;
 }
@@ -33,7 +50,7 @@ $spacers: (
     display: block;
     width: 2.375rem;
     height: 2.375rem;
-    line-height: 2.25rem;
+    line-height: 2.48rem;
     text-align: center;
     pointer-events: none;
     color: #aaa;

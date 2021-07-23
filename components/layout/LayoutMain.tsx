@@ -4,9 +4,8 @@ import Main from "./Main";
 import Logo from "./Logo";
 import Sidebar from "./Sidebar";
 
-
 const Layout = (props: any) => (
-    
+        
     <div>
 
         <div className="d-flex    border-bottom">
@@ -15,7 +14,7 @@ const Layout = (props: any) => (
         </div>
         <div className=" d-flex ">
             <div className=" border-end d-none d-lg-block" style={{ 'width': '245px' }}><Sidebar /></div>
-            <div className=" bg-light w-100"><Main>{props.children}</Main></div>
+            <div className={` w-100 `} ><Main>{props.children}</Main></div>
         </div>
 
 
@@ -23,6 +22,8 @@ const Layout = (props: any) => (
 
     </div>
 );
+
+
 
 
 export default Layout;
