@@ -1,10 +1,10 @@
-
-
 export default function Logo() {
-    return (
-        <div className="ps-3 h4 h-100 d-flex align-items-center  ">
-            <div> Besedilo-akordi.si</div>
-
-        </div>
-    )
+  return (
+    <div className="pl-5 text-xl   h-full font-bold flex items-center  ">
+      <div className=" bg-purple-200 rounded-lg text-purple-400 px-3 py-3">
+        {" "}
+        ))))))))))))))))))))))
+      </div>
+    </div>
+  );
 }

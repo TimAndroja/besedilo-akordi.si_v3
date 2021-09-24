@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+@tailwind utilities;
+
+.pdfImageCalcs {
+  width: calc(100vh / 1.41428571429);
+  height: calc(100vh / 1);
+}

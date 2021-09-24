@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
-
 export default function Categories() {
   const [categoryArray, setCategoryArray] = useState([
     {
@@ -62,30 +60,24 @@ export default function Categories() {
     },
   ]);
   const [windowWidth, setWindowWidth] = useState(0);
-  const [slidePage, setSlidePage] = useState(0);
+
   const [numOfElements, setNumOfElements] = useState(10);
+  const [displayAllElements, setDisplayAllElements] = useState(false);
   useEffect(() => {
     if (typeof window !== "undefined") {
       // @ts-ignore
       function handleResize() {
-         
-          if(window.innerWidth > 2400){
-            setNumOfElements(10);
-          }
-          else if (window.innerWidth > 1600){
-            setNumOfElements(6);
-          }
-          else if (window.innerWidth > 1500){
-            setNumOfElements(4);
-        }   
-            else if (window.innerWidth > 600){
-                setNumOfElements(3);
-            }
-            else if (window.innerWidth < 600){
-                setNumOfElements(2);
-            }
-        
-
+        if (window.innerWidth > 2400) {
+          setNumOfElements(10);
+        } else if (window.innerWidth > 1600) {
+          setNumOfElements(8);
+        } else if (window.innerWidth > 1500) {
+          setNumOfElements(4);
+        } else if (window.innerWidth > 700) {
+          setNumOfElements(3);
+        } else if (window.innerWidth < 700) {
+          setNumOfElements(2);
+        }
       }
       handleResize();
       window.addEventListener("resize", handleResize);
@@ -93,60 +85,62 @@ export default function Categories() {
     }
   }, []);
 
-  function categoriesGridController() {
-    let buttonClasses = 'btn btn-primary text-white fw-bold   d-inline-block text-truncate fs-6 p-sm-2 px-sm-3 btn-sm    w-100 ';
-
+  function categoriesGridController(displayAllElements: boolean) {
+    let buttonClasses =
+      "   text-truncate py-2 text-center truncate  font-bold text-gray-600 w-full ";
+    let loopLimit;
+    displayAllElements
+      ? (loopLimit = categoryArray.length)
+      : (loopLimit = numOfElements);
     let shownCategories = [];
-    //set arrow back?
 
-    //set arrow next?
-    let offset = 0;
-    if (slidePage * numOfElements + numOfElements > categoryArray.length) {
-      offset = slidePage * numOfElements + numOfElements - categoryArray.length;
-      
-    }
-  
-
-    for (var i = 0; i < numOfElements; i++) {
+    for (var i = 0; i < loopLimit; i++) {
       shownCategories.push(
-        <div className="w-100 shadow"  key={i}>
-        <button
-        type="button"
-       
-        className={buttonClasses}
-      >
-        {categoryArray[i - offset + slidePage * numOfElements].name}
-      </button>
+        <div
+          className="  bg-purple-300 bg-opacity-70 rounded-md  hover:bg-opacity-100  "
+          key={i}
+        >
+          <button type="button" className={buttonClasses}>
+            {categoryArray[i].name}
+          </button>
         </div>
-    );
-
- 
-
- 
-        
-    
+      );
     }
     return shownCategories;
   }
 
-  const categoryDisplay = categoriesGridController().map((element, index) => {return element})
+  const categoryDisplay = categoriesGridController(displayAllElements).map(
+    (element, index) => {
+      return element;
+    }
+  );
 
-
-  return <nav className="d-flex ">
-       <button
-            type="button"
-            className={`btn btn-primary shadow-sm text-white fw-bold px-0  btn-sm  ${slidePage == 0 ? "disabled" : ""}`}
-            onClick={()=>slidePage > 0 ? setSlidePage(slidePage - 1) : void 0}
-          >
-            <i className="material-icons-outlined align-middle">chevron_left</i>
-          </button>
-      <div className="w-100 "><div className="categoryGrid" style={{"gridTemplateColumns" : "1fr ".repeat(numOfElements)}}>{categoryDisplay}</div></div>
-      <button
-          type="button"
-          className={`btn shadow-sm btn-primary btn-sm text-white fw-bold px-0 ${ slidePage * numOfElements + numOfElements +  1< categoryArray.length ? "" : "disabled"}`}
-          onClick={()=> slidePage * numOfElements + numOfElements +  1 < categoryArray.length ? setSlidePage(slidePage + 1): void 0}
+  return (
+    <nav className="hidden  sm:flex mb-11">
+      <div className="w-full ">
+        <div
+          className=" grid gap-x-2 gap-y-2 "
+          style={{ gridTemplateColumns: "1fr ".repeat(numOfElements + 1) }}
         >
-              <i className="material-icons-outlined align-middle">chevron_right</i>
-        </button>
-      </nav>;
+          {categoryDisplay}
+
+          <button
+            className={
+              !displayAllElements
+                ? ` bg-purple-300 text-gray-600  bg-opacity-70 rounded-md   hover:bg-opacity-100 h-full   `
+                : "bg-purple-300 text-gray-600  bg-opacity-70 rounded-md  hover:bg-opacity-100 h-full"
+            }
+            onClick={() => {
+              setDisplayAllElements(!displayAllElements);
+              categoriesGridController(displayAllElements);
+            }}
+          >
+            <i className="material-icons-outlined align-middle text-center my-auto">
+              {!displayAllElements ? "last_page" : "first_page"}
+            </i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
 }
